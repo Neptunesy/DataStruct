@@ -6,6 +6,25 @@ public class HashTabDemo {
 
 
     }
+    class HashTab{
+        private EmpLinkedList[] empLinkedListArray;
+        private int size;
+        public HashTab(int size){
+            this.size = size;
+            empLinkedListArray = new EmpLinkedList[size];
+        }
+        //添加
+        public void addEmp(Emp emp){
+                int empLinkedListArrayNumber = hashFun(emp.id);
+                //将emp 添加到对应的链表中
+                empLinkedListArray[empLinkedListArrayNumber].addEmp(emp);
+        }
+
+        public int hashFun(int id){
+
+            return id%size;
+        }
+    }
     class Emp{
         public int id;
         public String name;
