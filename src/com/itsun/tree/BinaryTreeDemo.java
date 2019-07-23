@@ -1,5 +1,8 @@
 package com.itsun.tree;
 
+/**
+ * @author SY-PC
+ */
 public class BinaryTreeDemo {
     public static void main(String[] args) {
         //先创建一颗二叉树
