@@ -2,6 +2,9 @@ package com.itsun.hashtab;
 
 import java.util.Scanner;
 
+/**
+ * @author ysun9621@gmail.com
+ */
 public class HashTabDemo {
     public static void main(String[] args) {
 

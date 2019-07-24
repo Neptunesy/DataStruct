@@ -32,16 +32,24 @@ public class BinaryTreeDemo {
 //        binaryTree.postOrder();
 
 
-        System.out.println("中序遍历！");
+//        System.out.println("中序遍历！");
+//
+//        HeroNode heroNode = binaryTree.postOrderSearch(5);
+//        if (heroNode != null) {
+//            System.out.println("当前节点的信息是："+heroNode.getName()+"当前节点"+heroNode.getNo());
+//        }else {
+//            System.out.println("编号为5的结点没有找到！");
+//        }
+//    }
 
-        HeroNode heroNode = binaryTree.postOrderSearch(5);
-        if (heroNode != null) {
-            System.out.println("当前节点的信息是："+heroNode.getName()+"当前节点"+heroNode.getNo());
-        }else {
-            System.out.println("编号为5的结点没有找到！");
-        }
+
+        System.out.println("删除前,前序遍历");
+        binaryTree.preOrder();
+        binaryTree.delNode(5);
+        System.out.println("删除后，前序遍历");
+        binaryTree.preOrder();
+
     }
-
 }
 
 class BinaryTree {
@@ -51,6 +59,19 @@ class BinaryTree {
         this.root = root;
     }
 
+
+    public void delNode(int no) {
+        if (root != null) {
+            //首先判断根节点的No==当前要删除的NO
+            if (root.getNo() == no) {
+                root = null;
+            } else {
+                root.delNode(no);
+            }
+        } else {
+            System.out.println("空树，不能删除！");
+        }
+    }
     public void preOrder() {
         if (this.root != null) {
             this.root.preOrder();
@@ -151,6 +172,25 @@ class HeroNode {
                 "no=" + no +
                 ", name='" + name + '\'' + '}';
     }
+
+    public void delNode(int no) {
+        if (this.left != null && this.left.no == no) {
+            this.left = null;
+            return;
+        }
+        if (this.right != null && this.right.no == no) {
+            this.right = null;
+            return;
+        }
+
+        if (this.left != null) {
+            this.left.delNode(no);
+        }
+        if (this.right != null) {
+            this.right.delNode(no);
+        }
+    }
+
 
     //前序遍历 中序遍历
 
