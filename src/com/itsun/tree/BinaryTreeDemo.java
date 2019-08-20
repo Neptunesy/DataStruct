@@ -42,14 +42,18 @@ public class BinaryTreeDemo {
 //        }
 //    }
 
+        int hight = binaryTree.getDepth();
+        System.out.println("当前树的高度是：" + hight);
 
-        System.out.println("删除前,前序遍历");
-        binaryTree.preOrder();
-        binaryTree.delNode(5);
-        System.out.println("删除后，前序遍历");
-        binaryTree.preOrder();
+//        System.out.println("删除前,前序遍历");
+//        binaryTree.preOrder();
+//        binaryTree.delNode(5);
+//        System.out.println("删除后，前序遍历");
+//        binaryTree.preOrder();
 
     }
+
+
 }
 
 class BinaryTree {
@@ -59,6 +63,10 @@ class BinaryTree {
         this.root = root;
     }
 
+
+    public int getDepth() {
+        return this.root.clacHight(root);
+    }
 
     public void delNode(int no) {
         if (root != null) {
@@ -299,4 +307,14 @@ class HeroNode {
         return resNode;
     }
 
+    public int clacHight(HeroNode tree) {
+        int leftHight, rightHight;
+        if (tree == null) {
+            return 0;
+        } else {
+            leftHight = clacHight(tree.getLeft());
+            rightHight = clacHight(tree.getRight());
+            return 1 + Math.max(leftHight, rightHight);
+        }
+    }
 }
