@@ -75,8 +75,8 @@ class HashTab {
         }
     }
 
+    //散列函数  此处可使用
     public int hashFun(int id) {
-
         return id % size;
     }
 
@@ -157,6 +157,7 @@ class EmpLinkedList {
         }
     }
 
+    //创建DEV分支
     public Emp findEmpById(int id) {
         //判断链表是否为空
         if (head == null) {
